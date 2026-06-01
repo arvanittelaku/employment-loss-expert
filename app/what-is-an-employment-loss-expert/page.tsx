@@ -5,6 +5,9 @@ import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb";
+import { articleSchema } from "@/lib/schema/organization";
+import { whatIsExpertLinks } from "@/lib/data/seo-related-links";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = createMetadata({
   title: "What Is an Employment Loss Expert Witness? | UK Role & Definition",
@@ -21,7 +24,17 @@ const breadcrumbs = [
 export default function WhatIsPage() {
   return (
     <PageLayout>
-      <JsonLd data={breadcrumbSchema(breadcrumbs)} />
+      <JsonLd
+        data={[
+          breadcrumbSchema(breadcrumbs),
+          articleSchema({
+            title: "What Is an Employment Loss Expert Witness?",
+            description:
+              "An employment loss expert witness quantifies financial losses from employment disputes for UK courts and tribunals.",
+            path: "/what-is-an-employment-loss-expert",
+          }),
+        ]}
+      />
       <PageHero
         title="What Is an Employment Loss Expert Witness?"
         breadcrumbs={breadcrumbs}
@@ -112,6 +125,9 @@ export default function WhatIsPage() {
           <Link href="/era-2025">Read our ERA 2025 guide</Link>.
         </p>
       </article>
+      <div className="mx-auto max-w-3xl px-4 pb-12 sm:px-6 lg:px-8">
+        <RelatedLinks title="Related pages" links={whatIsExpertLinks} />
+      </div>
     </PageLayout>
   );
 }

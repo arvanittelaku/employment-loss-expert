@@ -26,6 +26,9 @@ jobs:
       - name: Verify SSR metadata on key pages
         run: npm run seo:verify:ssr
 
+      - name: Verify internal linking rules
+        run: npm run seo:verify:links
+
       - name: Check generated files are committed
         run: |
           git diff --exit-code public/sitemap.xml public/robots.txt || (

@@ -7,6 +7,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb";
 import { faqSchema } from "@/lib/schema/faq";
 import { siteFaqs } from "@/lib/data/faq";
+import { faqHubLinks } from "@/lib/data/seo-related-links";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = createMetadata({
   title: "Employment Loss Expert Witness FAQ UK | Common Questions Answered",
@@ -31,6 +33,7 @@ export default function FAQPage() {
       />
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
         <FAQSection faqs={siteFaqs} title="Common Questions" />
+        <RelatedLinks title="Related pages" links={faqHubLinks} />
       </div>
     </PageLayout>
   );

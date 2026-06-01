@@ -5,6 +5,8 @@ import { PageHero } from "@/components/PageHero";
 import { DataTable } from "@/components/DataTable";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb";
+import { feesHubLinks } from "@/lib/data/seo-related-links";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = createMetadata({
   title: "Employment Loss Expert Witness Fees UK | 2025 Report Costs & Hourly Rates",
@@ -70,6 +72,9 @@ export default function FeesPage() {
           <li>Whether oral evidence is needed</li>
         </ul>
       </article>
+      <div className="mx-auto max-w-3xl px-4 pb-12 sm:px-6 lg:px-8">
+        <RelatedLinks title="Next steps" links={feesHubLinks} />
+      </div>
     </PageLayout>
   );
 }

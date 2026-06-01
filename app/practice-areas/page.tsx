@@ -5,6 +5,8 @@ import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb";
+import { practiceAreasHubLinks } from "@/lib/data/seo-related-links";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = createMetadata({
   title: "Employment Loss Expert Witnesses by Practice Area | PI, ET & Family UK",
@@ -62,6 +64,7 @@ export default function PracticeAreasHubPage() {
             </Link>
           ))}
         </div>
+        <RelatedLinks title="Explore employment loss expert evidence" links={practiceAreasHubLinks} />
       </div>
     </PageLayout>
   );

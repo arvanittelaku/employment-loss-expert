@@ -17,6 +17,13 @@ const PAGES_REQUIRING_METADATA = [
   "app/era-2025/page.tsx",
   "app/contact/page.tsx",
   "app/cookies/page.tsx",
+  "app/practice-areas/page.tsx",
+  "app/case-types/page.tsx",
+  "app/guides/page.tsx",
+  "app/glossary/page.tsx",
+  "app/faq/page.tsx",
+  "app/how-to-instruct/page.tsx",
+  "app/what-is-an-employment-loss-expert/page.tsx",
 ];
 
 function main(): void {

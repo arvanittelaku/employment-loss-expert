@@ -6,6 +6,9 @@ import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb";
 import { caseTypes } from "@/lib/data/case-types";
+import { caseTypesHubLinks } from "@/lib/data/seo-related-links";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
+import { itemListSchema } from "@/lib/schema/itemList";
 
 export const metadata: Metadata = createMetadata({
   title: "Case Types Requiring an Employment Loss Expert Witness | UK Guide",
@@ -22,7 +25,18 @@ const breadcrumbs = [
 export default function CaseTypesHubPage() {
   return (
     <PageLayout>
-      <JsonLd data={breadcrumbSchema(breadcrumbs)} />
+      <JsonLd
+        data={[
+          breadcrumbSchema(breadcrumbs),
+          itemListSchema({
+            name: "UK case types requiring employment loss expert witnesses",
+            items: caseTypes.map((ct) => ({
+              name: ct.title,
+              path: `/case-types/${ct.slug}`,
+            })),
+          }),
+        ]}
+      />
       <PageHero
         title="Case Types Requiring an Employment Loss Expert Witness"
         subtitle="Explore the UK case types where employment loss expert evidence is essential."
@@ -44,6 +58,7 @@ export default function CaseTypesHubPage() {
             </Link>
           ))}
         </div>
+        <RelatedLinks title="Related employment loss resources" links={caseTypesHubLinks} />
       </div>
     </PageLayout>
   );

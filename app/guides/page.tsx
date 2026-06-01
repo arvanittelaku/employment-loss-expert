@@ -6,6 +6,9 @@ import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb";
 import { guides } from "@/lib/data/guides";
+import { guidesHubLinks } from "@/lib/data/seo-related-links";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
+import { itemListSchema } from "@/lib/schema/itemList";
 
 export const metadata: Metadata = createMetadata({
   title: "Solicitor Guides: Employment Loss Expert Witnesses UK | PI, ET & Family Law",
@@ -22,7 +25,15 @@ const breadcrumbs = [
 export default function GuidesHubPage() {
   return (
     <PageLayout>
-      <JsonLd data={breadcrumbSchema(breadcrumbs)} />
+      <JsonLd
+        data={[
+          breadcrumbSchema(breadcrumbs),
+          itemListSchema({
+            name: "Solicitor guides on employment loss expert witnesses",
+            items: guides.map((g) => ({ name: g.h1, path: `/guides/${g.slug}` })),
+          }),
+        ]}
+      />
       <PageHero
         title="Solicitor Guides: Employment Loss Expert Witnesses UK"
         subtitle="In-depth guides for UK solicitors on employment loss expert evidence across PI, ET, and family law."
@@ -44,6 +55,7 @@ export default function GuidesHubPage() {
             </Link>
           ))}
         </div>
+        <RelatedLinks title="Related employment loss resources" links={guidesHubLinks} />
       </div>
     </PageLayout>
   );

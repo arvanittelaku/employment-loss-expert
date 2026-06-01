@@ -12,6 +12,8 @@ import { servicesPageSchema } from "@/lib/schema/organization";
 import { allServiceFaqs, services } from "@/lib/data/services";
 import { siteFaqs } from "@/lib/data/faq";
 import { SITE_EMAIL } from "@/lib/site";
+import { servicesHubLinks } from "@/lib/data/seo-related-links";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 
 export const metadata: Metadata = createMetadata({
   title: "Employment Loss Expert Witness Services UK | Full Service List",
@@ -89,6 +91,7 @@ export default function ServicesPage() {
             .
           </p>
         </div>
+        <RelatedLinks title="Related pages" links={servicesHubLinks} />
       </div>
     </PageLayout>
   );

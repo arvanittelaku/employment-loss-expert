@@ -4,11 +4,13 @@ import { createMetadata } from "@/lib/metadata";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
 import { GlossaryTerm } from "@/components/seo/GlossaryTerm";
+import { GlossarySearchForm } from "@/components/seo/GlossarySearchForm";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb";
 import { faqSchema } from "@/lib/schema/faq";
 import { glossaryTerms } from "@/lib/data/glossary";
+import { glossaryHubLinks } from "@/lib/data/seo-related-links";
 
 export const metadata: Metadata = createMetadata({
   title: "Employment Loss Expert Witness Glossary | Key UK Legal Terms",
@@ -22,20 +24,31 @@ const breadcrumbs = [
   { name: "Glossary", path: "/glossary" },
 ];
 
-const glossaryFaqs = glossaryTerms.map((t) => ({
-  question: t.term,
-  answer: `${t.summary} ${t.definition}`,
-}));
+function filterTerms(query?: string) {
+  if (!query?.trim()) return glossaryTerms;
+  const q = query.trim().toLowerCase();
+  return glossaryTerms.filter(
+    (t) =>
+      t.term.toLowerCase().includes(q) ||
+      t.summary.toLowerCase().includes(q) ||
+      t.definition.toLowerCase().includes(q) ||
+      t.fragmentId.includes(q)
+  );
+}
 
-const glossaryHubLinks = [
-  { href: "/how-loss-is-calculated", label: "How employment loss is calculated" },
-  { href: "/era-2025", label: "ERA 2025 guide" },
-  { href: "/guides", label: "Solicitor guides" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Instruct an expert witness" },
-];
+type PageProps = {
+  searchParams: Promise<{ q?: string }>;
+};
 
-export default function GlossaryPage() {
+export default async function GlossaryPage({ searchParams }: PageProps) {
+  const { q } = await searchParams;
+  const visibleTerms = filterTerms(q);
+
+  const glossaryFaqs = visibleTerms.map((t) => ({
+    question: t.term,
+    answer: `${t.summary} ${t.definition}`,
+  }));
+
   return (
     <PageLayout>
       <JsonLd data={[breadcrumbSchema(breadcrumbs), faqSchema(glossaryFaqs)]} />
@@ -45,6 +58,7 @@ export default function GlossaryPage() {
         breadcrumbs={breadcrumbs}
       />
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+        <GlossarySearchForm query={q} resultCount={visibleTerms.length} />
         <p className="mb-8 text-body">
           Jump to a term below or explore our{" "}
           <Link href="/how-loss-is-calculated" className="font-semibold text-accent">
@@ -52,11 +66,15 @@ export default function GlossaryPage() {
           </Link>
           .
         </p>
-        <div className="space-y-6">
-          {glossaryTerms.map((term) => (
-            <GlossaryTerm key={term.fragmentId} term={term} />
-          ))}
-        </div>
+        {visibleTerms.length === 0 ? (
+          <p className="text-body">No glossary terms match your search. Try a different keyword.</p>
+        ) : (
+          <div className="space-y-6">
+            {visibleTerms.map((term) => (
+              <GlossaryTerm key={term.fragmentId} term={term} />
+            ))}
+          </div>
+        )}
         <RelatedLinks title="Explore further" links={glossaryHubLinks} />
       </div>
     </PageLayout>

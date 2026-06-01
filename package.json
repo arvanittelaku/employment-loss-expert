@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run seo:generate && next build",
+    "build": "npm run seo:generate && npm run seo:verify:all && next build",
     "start": "next start",
     "lint": "eslint",
     "seo:generate": "tsx scripts/generate-seo.ts",
     "seo:verify": "tsx scripts/verify-seo.ts",
-    "seo:verify:ssr": "tsx scripts/verify-ssr.ts"
+    "seo:verify:ssr": "tsx scripts/verify-ssr.ts",
+    "seo:verify:links": "tsx scripts/verify-internal-links.ts",
+    "seo:verify:all": "npm run seo:verify && npm run seo:verify:ssr && npm run seo:verify:links"
   },
   "dependencies": {
     "googleapis": "^173.0.0",
