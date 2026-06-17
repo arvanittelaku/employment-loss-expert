@@ -6,12 +6,12 @@ import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb";
-import { SITE_EMAIL, SITE_REGION_LABEL, SITE_REGION_NOTICE } from "@/lib/site";
+import { SITE_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   title: "Instruct an Employment Loss Expert Witness | EmploymentLossExpert.com UK",
   description:
-    "Submit your case details to be matched with a qualified UK employment loss expert witness. For UK solicitors in England and Wales only. Response within 1 business day.",
+    "Submit your case details to be matched with a qualified employment loss expert witness for PI, ET, or family law proceedings in England and Wales. Response within 1 business day.",
   path: "/contact",
 });
 
@@ -39,9 +39,8 @@ const intakePaths = [
 ];
 
 const trustPoints = [
-  "UK solicitors only (England and Wales)",
-  "PI, ET, and family law covered",
-  "CPR Part 35 & FPR Part 25 compliant",
+  "Personal injury, ET, and family law covered",
+  "CPR Part 35 and FPR Part 25 compliant",
   "ERA 2025 ready: uncapped award calculations",
   "Response within 1 business day",
 ];
@@ -52,7 +51,7 @@ export default function ContactPage() {
       <JsonLd data={breadcrumbSchema(breadcrumbs)} />
       <PageHero
         title="Instruct an Employment Loss Expert Witness"
-        subtitle={`Submit your case details to be matched with a qualified UK employment loss expert witness. ${SITE_REGION_LABEL} only.`}
+        subtitle="Submit your case details to be matched with a qualified employment loss expert witness for proceedings in England and Wales."
         breadcrumbs={breadcrumbs}
       />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -70,9 +69,6 @@ export default function ContactPage() {
 
         <div className="grid gap-10 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <p className="mb-6 rounded-lg border border-border bg-section-alt p-4 text-sm leading-relaxed text-body">
-              {SITE_REGION_NOTICE}
-            </p>
             <ContactForm />
           </div>
           <aside className="rounded-lg border border-border bg-primary p-6 text-white">

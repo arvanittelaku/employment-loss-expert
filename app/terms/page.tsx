@@ -25,11 +25,11 @@ export default function TermsPage() {
           firm and do not provide legal advice. Nothing on this website constitutes legal advice.
         </p>
 
-        <h2>UK Service Area</h2>
+        <h2>Service Area</h2>
         <p>
-          This website and our referral service are available to solicitors and law firms operating
-          in the United Kingdom only. We do not accept enquiries from outside the UK or for
-          proceedings outside England and Wales.
+          This website and our referral service are intended for solicitors and law firms with cases
+          in England and Wales. We do not accept enquiries for proceedings outside the United
+          Kingdom.
         </p>
 
         <h2>No Client Relationship</h2>

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { desktopNav, mobileNavGroups, isDropdown } from "@/lib/navigation";
 import { NavDropdown } from "./NavDropdown";
-import { SITE_REGION_SHORT } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -14,13 +13,10 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold text-primary sm:text-xl"
+          className="text-lg font-bold text-primary sm:text-xl"
           onClick={() => setOpen(false)}
         >
-          <span>EmploymentLossExpert</span>
-          <span className="rounded bg-primary px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white sm:text-xs">
-            {SITE_REGION_SHORT}
-          </span>
+          EmploymentLossExpert
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main navigation">

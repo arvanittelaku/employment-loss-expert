@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Employment Loss Expert Witness UK | EmploymentLossExpert.com",
   description:
-    "UK-only employment loss expert witness referral service for solicitors in England and Wales. Loss of earnings, ET compensation, and family law expert evidence.",
+    "Employment loss expert witness referral service for solicitors in England and Wales. Loss of earnings, ET compensation, and family law expert evidence.",
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
     other: process.env.BING_SITE_VERIFICATION

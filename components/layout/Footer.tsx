@@ -31,9 +31,9 @@ export function Footer() {
 
         <div className="mt-10 border-t border-white/20 pt-8">
           <p className="text-sm text-white/60">
-            EmploymentLossExpert.com connects UK solicitors with employment loss expert witnesses
-            for proceedings in {SITE_REGION_LABEL}. We are not a law firm and do not provide legal
-            advice. This service is not available outside the United Kingdom.
+            EmploymentLossExpert.com connects solicitors with employment loss expert witnesses
+            for personal injury, employment tribunal, and family law proceedings in{" "}
+            {SITE_REGION_LABEL}. We are not a law firm and do not provide legal advice.
           </p>
           <p className="mt-3 text-sm">
             <span className="text-white/60">Email: </span>
@@ -46,8 +46,8 @@ export function Footer() {
           </p>
           <FooterLegalLinks />
           <p className="mt-4 text-sm text-white/50">
-            &copy; {new Date().getFullYear()} EmploymentLossExpert. Registered for {SITE_REGION_LABEL}
-            only.
+            &copy; {new Date().getFullYear()} EmploymentLossExpert. Serving solicitors in{" "}
+            {SITE_REGION_LABEL}.
           </p>
         </div>
       </div>

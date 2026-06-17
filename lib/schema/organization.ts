@@ -11,7 +11,7 @@ export function organizationSchema() {
         name: SITE_NAME,
         url: SITE_URL,
         email: SITE_EMAIL,
-        description: `UK-only referral service connecting solicitors with employment loss expert witnesses for ${SITE_REGION_LABEL} proceedings.`,
+        description: `Referral service connecting solicitors with employment loss expert witnesses for ${SITE_REGION_LABEL} proceedings.`,
         address: {
           "@type": "PostalAddress",
           addressCountry: "GB",

@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Header } from "./layout/Header";
 import { Footer } from "./layout/Footer";
-import { UkRegionBanner } from "./layout/UkRegionBanner";
 import { CTASection } from "./CTASection";
 
 type PageLayoutProps = {
@@ -13,7 +12,6 @@ export function PageLayout({ children, showCTA = true }: PageLayoutProps) {
   return (
     <>
       <Header />
-      <UkRegionBanner />
       <main className="flex-1">{children}</main>
       {showCTA && <CTASection />}
       <Footer />
