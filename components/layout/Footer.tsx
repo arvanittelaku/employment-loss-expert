@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footerColumns } from "@/lib/navigation";
-import { SITE_EMAIL } from "@/lib/site";
+import { SITE_EMAIL, SITE_REGION_LABEL } from "@/lib/site";
 import { FooterLegalLinks } from "./FooterLegalLinks";
 
 export function Footer() {
@@ -31,8 +31,9 @@ export function Footer() {
 
         <div className="mt-10 border-t border-white/20 pt-8">
           <p className="text-sm text-white/60">
-            EmploymentLossExpert.com connects solicitors with employment loss expert witnesses. We
-            are not a law firm and do not provide legal advice.
+            EmploymentLossExpert.com connects UK solicitors with employment loss expert witnesses
+            for proceedings in {SITE_REGION_LABEL}. We are not a law firm and do not provide legal
+            advice. This service is not available outside the United Kingdom.
           </p>
           <p className="mt-3 text-sm">
             <span className="text-white/60">Email: </span>
@@ -45,7 +46,8 @@ export function Footer() {
           </p>
           <FooterLegalLinks />
           <p className="mt-4 text-sm text-white/50">
-            &copy; {new Date().getFullYear()} EmploymentLossExpert. England and Wales.
+            &copy; {new Date().getFullYear()} EmploymentLossExpert. Registered for {SITE_REGION_LABEL}
+            only.
           </p>
         </div>
       </div>

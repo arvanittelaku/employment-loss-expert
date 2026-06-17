@@ -9,7 +9,7 @@ type CTASectionProps = {
 
 export function CTASection({
   title = "Ready to Instruct an Employment Loss Expert?",
-  description = "Submit your case details and we will match you with a qualified UK employment loss expert witness for PI, ET, or family law proceedings. Response within 1 business day.",
+  description = "Submit your case details to be matched with a qualified UK employment loss expert witness. UK solicitors in England and Wales only. Response within 1 business day.",
   primaryHref = "/contact",
   primaryLabel = "Instruct an Expert Witness",
 }: CTASectionProps) {

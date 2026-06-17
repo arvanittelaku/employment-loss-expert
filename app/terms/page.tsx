@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { SITE_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   title: "Terms of Use | EmploymentLossExpert.com",
@@ -20,8 +21,15 @@ export default function TermsPage() {
         <h2>About This Service</h2>
         <p>
           EmploymentLossExpert.com is a referral service connecting UK solicitors with qualified
-          employment loss expert witnesses. We are not a law firm and do not provide legal advice.
-          Nothing on this website constitutes legal advice.
+          employment loss expert witnesses for proceedings in England and Wales. We are not a law
+          firm and do not provide legal advice. Nothing on this website constitutes legal advice.
+        </p>
+
+        <h2>UK Service Area</h2>
+        <p>
+          This website and our referral service are available to solicitors and law firms operating
+          in the United Kingdom only. We do not accept enquiries from outside the UK or for
+          proceedings outside England and Wales.
         </p>
 
         <h2>No Client Relationship</h2>
@@ -65,7 +73,12 @@ export default function TermsPage() {
         </p>
 
         <h2>Contact</h2>
-        <p>Questions about these terms: info@employmentlossexpert.com</p>
+        <p>
+          Questions about these terms:{" "}
+          <a href={`mailto:${SITE_EMAIL}`} className="font-semibold text-accent">
+            {SITE_EMAIL}
+          </a>
+        </p>
       </article>
     </PageLayout>
   );

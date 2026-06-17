@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHero } from "@/components/PageHero";
+import { SITE_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   title: "Privacy Policy | EmploymentLossExpert.com",
@@ -60,8 +61,11 @@ export default function PrivacyPage() {
         <h2>Your Rights</h2>
         <p>
           Under UK GDPR, you have the right to access, rectify, erase, restrict processing, object,
-          and data portability. You may lodge a complaint with the ICO (ico.org.uk). Contact us at
-          info@employmentlossexpert.com to exercise your rights.
+          and data portability. You may lodge a complaint with the ICO (ico.org.uk). Contact us at{" "}
+          <a href={`mailto:${SITE_EMAIL}`} className="font-semibold text-accent">
+            {SITE_EMAIL}
+          </a>{" "}
+          to exercise your rights.
         </p>
 
         <h2>Cookies</h2>

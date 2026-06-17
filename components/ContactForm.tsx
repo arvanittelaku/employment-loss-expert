@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { SITE_EMAIL } from "@/lib/site";
 
 export function ContactForm() {
   const router = useRouter();
@@ -216,7 +217,7 @@ export function ContactForm() {
       {status === "error" && (
         <p className="text-sm text-highlight" role="alert">
           {errorMessage ?? "There was a problem submitting your enquiry."} Please email us
-          directly at info@employmentlossexpert.com
+          directly at {SITE_EMAIL}
         </p>
       )}
 

@@ -1,4 +1,4 @@
-import { SITE_URL, SITE_NAME, SITE_EMAIL, LINKEDIN_URL } from "../site";
+import { SITE_URL, SITE_NAME, SITE_EMAIL, LINKEDIN_URL, SITE_REGION_LABEL } from "../site";
 import { services } from "../data/services";
 
 export function organizationSchema() {
@@ -11,6 +11,7 @@ export function organizationSchema() {
         name: SITE_NAME,
         url: SITE_URL,
         email: SITE_EMAIL,
+        description: `UK-only referral service connecting solicitors with employment loss expert witnesses for ${SITE_REGION_LABEL} proceedings.`,
         address: {
           "@type": "PostalAddress",
           addressCountry: "GB",

@@ -1,6 +1,11 @@
 export const SITE_URL = "https://www.employmentlossexpert.com";
 export const SITE_NAME = "EmploymentLossExpert";
-export const SITE_EMAIL = "info@employmentlossexpert.com";
+export const SITE_EMAIL = "contact@employmentlossexpert.com";
+export const SITE_REGION = "GB";
+export const SITE_REGION_SHORT = "UK only";
+export const SITE_REGION_LABEL = "United Kingdom (England and Wales)";
+export const SITE_REGION_NOTICE =
+  "This website is for UK solicitors only. We connect you with employment loss expert witnesses for proceedings in England and Wales. We do not serve clients or cases outside the United Kingdom.";
 export const LINKEDIN_URL =
   "https://www.linkedin.com/company/employment-loss-expert";
 
